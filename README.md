@@ -29,14 +29,6 @@ O objetivo do EcoLeaf é criar uma plataforma informativa e acessível para entu
 - **[Guilherme Rigobello](https://github.com/Guilherme-Rigobello)**: Desenvolvimento do frontend - Suporte ao Backend 🎨.
 - **[Leonardo Yudi](https://github.com/MasterXbox)**: Desenvolvimento do backend - Suporte ao FrontEnd 🔧.
 
-<br>
-
-## 🛠 Ferramentas Utilizadas
-
-- **Node.js**: Para execução do JavaScript no servidor.
-- **Express**: Framework para a criação de servidores web.
-- **EJS**: Motor de templates para renderização de páginas dinâmicas.
-- **Bootstrap**: Framework CSS para estilização e design responsivo.
 
 <br>
 

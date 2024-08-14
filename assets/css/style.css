@@ -35,6 +35,34 @@ header .nav-link:hover {
     color: #333;
 }
 
+/* Forms */
+
+header #buscar-planta-form .form-control {
+    border-radius: 0.25rem; 
+    border-color: #ced4da; 
+}
+
+header #buscar-planta-form .form-control:focus {
+   
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); 
+}
+
+
+header #buscar-planta-form .btn-light {
+    background-color: #f8f9fa; 
+    color: #495057; 
+    border: 1px solid #ced4da; 
+    border-radius: 0.25rem;
+    transition: border-color 0.3s ease; 
+}
+
+header #buscar-planta-form .btn-light:hover {
+    background-color: #e2e6ea; 
+    color: #343a40; 
+    border-color: #adb5bd; 
+}
+
+
 
 /* Main */
 main .text-large {
@@ -202,6 +230,15 @@ footer ul li a:hover {
 
 /* Media */
 @media (max-width: 658px) {
+
+    header #buscar-planta-form {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    
+    header #buscar-planta-form .form-control {
+        margin-bottom: 10px; /* Espaçamento inferior no dispositivo móvel */
+    }
 
     /* Overlay - Block */
     main .section-info .col-md-3 .image-container .overlay {

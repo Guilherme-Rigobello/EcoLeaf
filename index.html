@@ -11,25 +11,32 @@
 
     <!--stylesheet------------->
     <link rel="stylesheet" href="./assets/css/style.css">
+
     <!--logo------------->
-    <link rel="icon" href="./assets/images/logo/logoEcoLeaf.png" sizes="32x32" type="image/png">
-    
+    <link rel="icon" href="./assets/images/svg/logoFolha.png" sizes="32x32" type="image/png">
+
     <title>EcoLeaf</title>
 </head>
 
 <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 header bg-success">
-        <ul class="nav nav-pills me-3">
-            <li class="nav-item"><a href="#" class="nav-link active bg-light text-dark me-2" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#main" class="nav-link text-light ">Informações</a></li>
-            <li class="nav-item"><a href="#section-blog" class="nav-link px-2 text-light">Blog</a></li>
-            <li class="nav-item"><a href="#article-faqs" class="nav-link text-light">FAQs</a></li>
-        </ul>
-    
-        <form id="buscar-planta-form" action="/buscar-planta" method="GET" class="d-flex align-items-center">
+    <header class="d-flex flex-wrap justify-content-between py-3 header bg-success">
+        <img class="px-4 img-logo-white-text" src="./assets/images/svg/logoTextoBranco.png" alt="">
+        <nav class="d-flex">
+            <ul class="nav nav-pills d-flex align-items-center justify-content-center">
+                <li class="nav-item"><a href="#" class="nav-link active bg-light text-dark me-2"
+                        aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#main" class="nav-link text-light ">Informações</a></li>
+                <li class="nav-item"><a href="#section-blog" class="nav-link px-2 text-light">Blog</a></li>
+                <li class="nav-item"><a href="#article-faqs" class="nav-link text-light">FAQs</a></li>
+            </ul>
+        </nav>
+        <form id="buscar-planta-form" action="/buscar-planta" method="GET" class="d-flex pe-4">
             <div class="input-group">
-                <input type="text" id="planta" name="nome" class="form-control" placeholder="Buscar planta 🔎">
-                <button type="submit" class="btn btn-light ms-2">Buscar</button>
+
+                <input type="text" id="planta" name="nome" class="form-control me-1" placeholder="Buscar Planta...">
+                <button type="submit" class="btn btn-success custom-btn">
+                    <img src="./assets/images/svg/LupaBranca.png" alt="Buscar" class="icon-lupa">
+                </button>
             </div>
         </form>
     </header>
@@ -38,6 +45,7 @@
     </nav>
 
     <main id="main">
+
         <section class="container-fluid mt-5 section-info">
             <p class="text-large text-center" id="a-1">Características Gerais</p>
 

@@ -6,12 +6,14 @@ const app = express()
  
 const port = 3000
 
-const plantasPath = path.join(__dirname, 'plantas.json')
+const plantasPath = path.join(__dirname, './assets/json/plantas.json')
 const plantasData = fs.readFileSync(plantasPath, 'utf-8')
 const plantas = JSON.parse(plantasData)
 
+app.use(express.static(path.join(__dirname, 'assets')));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/filmes.html'))
+    res.sendFile(path.join(__dirname, '/index.html'))
 })
 
 
@@ -69,4 +71,8 @@ app.get('/filtrarPorGenero', (req, res) => {
     res.send(finalHtml);
 
        
+})
+
+app.listen(port, () => {
+    console.log(`Servidor iniciado em http://localhost:${port}`)
 })

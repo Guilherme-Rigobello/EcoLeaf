@@ -28,7 +28,7 @@ O objetivo do EcoLeaf é criar uma plataforma informativa e acessível para entu
 
 - **[Guilherme Rigobello](https://github.com/Guilherme-Rigobello)**: Desenvolvimento do frontend e suporte ao BackEnd 🛠
 - **[Leonardo Yudi](https://github.com/MasterXbox)**: Desenvolvimento do backend 🔧
-- **[João Victor](https://github.com/ojoaox)** Design UX - Criação de wireframes, protótipos e elementos gráficos do EcoLeaf 🎨
+- **[João Victor](https://github.com/ojoaox)** Design UX - Criação de wireframes, protótipos, elementos gráficos e identidade visual do EcoLeaf 🎨
 
 
 <br>

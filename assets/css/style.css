@@ -106,6 +106,42 @@ main .text-large {
     margin-top: 8vh;
 }
 
+
+/* Table Section */
+
+.table-responsive {
+    overflow-x: auto; 
+    width: 100%; 
+   
+}
+
+.table-section .h-table {
+    margin-top: 16vh;
+}
+
+.table-section .table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    width: 95%; 
+    border-collapse: separate; 
+    margin: 0 auto;
+}
+
+.table-section .table th, .table td {
+    padding: 10px 40px; 
+}
+
+.table-section .table th {
+    background-color: #f8f9fa;
+}
+
+.table-section .table td img {
+    height: auto;
+    max-width: 100px;
+}
+
+
 /* Section Style */
 main #a-1 {
     margin-top: 12vh;

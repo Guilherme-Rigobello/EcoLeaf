@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
- 
 const app = express()
  
 const port = 3002
@@ -13,12 +12,30 @@ const plantas = JSON.parse(plantasData)
 app.use(express.static(path.join(__dirname, 'assets')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'))
+    let plantasTable = '';
+
+
+    plantas.forEach(planta => {
+        plantasTable += `
+    <tr >
+        <td style="padding-top: 35px;">${planta.id}</td>
+        <td style="padding-top: 35px;">${planta.nomeCientifico} </td>
+        <td style="padding-top: 35px;">${planta.nomePopular} </td>
+        <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style ="width: 200px; height: 80px;"></td>
+    </tr>
+    `
+    });
+
+    const htmlContent = fs.readFileSync('index.html', 'utf-8');
+    const finalHtml = htmlContent.replace('{{plantasTable}}', plantasTable);
+
+    res.send(finalHtml);
 })
 
 
-function buscarPlanta(nomePopular) {
 
+
+function buscarPlanta(nomePopular) {
     return plantas.find(planta => planta.nomePopular.toLowerCase() === nomePopular.toLowerCase())
 }
 
@@ -44,34 +61,6 @@ app.get('/buscar-planta', (req, res) => {
     }
 })
 
-
-app.get('/filtrarPorGenero', (req, res) => {
-    const genero = req.query.genero.toLowerCase();
-    const filmesFiltrados = filmes.filter(filme => filme.genero.toLowerCase() === genero);
-
-        let filmesTable = '';
-
-    filmesFiltrados.forEach(filme => {
-
-
-        filmesTable += `
-        <tr>
-            <td><h3>${filme.titulo}</h3></td>
-            <td><h4>${filme.ano}</h4></td>
-            <td><h4>${filme.diretor}</h4></td>
-            <td><h4>${filme.genero}</h4></td>
-            <td><img src="${filme.cartaz}" alt="${filme.titulo}" style="max-width: 100px;"></td>
-        </tr>
-        `;
-    });
-
-    const htmlContent = fs.readFileSync('filmes.html', 'utf-8');
-    const finalHtml = htmlContent.replace('{{filmesTable}}', filmesTable);
-
-    res.send(finalHtml);
-
-       
-})
 
 app.listen(port, () => {
     console.log(`Servidor iniciado em http://localhost:${port}`)

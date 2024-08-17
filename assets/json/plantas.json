@@ -1,5 +1,32 @@
 [
     {
-        
+        "id": "1",
+        "nomeCientifico": "Rosmarinus officinalis",
+        "nomePopular": "Alecrim",
+         "foto": "https://cdn.awsli.com.br/600x450/1348/1348550/produto/111620982/d327f5a0bd.jpg"
+    },
+    {
+        "id": "2",
+        "nomeCientifico": "Atropa belladonna",
+        "nomePopular": "Beladona",
+         "foto": "https://cdn.pixabay.com/photo/2018/03/04/23/43/belladonna-3199636_1280.png"
+    },
+    {
+        "id": "3",
+        "nomeCientifico": "Matricaria chamomilla",
+        "nomePopular": "Camomila",
+         "foto": "https://static.shambalaloja.com.br/public/shambala/imagens/produtos/camomila-flor-10kg-791.jpg"
+    },
+    {
+        "id": "4",
+        "nomeCientifico": "Curcuma longa",
+        "nomePopular": "Cúrcuma",
+        "foto": "https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo/curcuma-longa.jpg"
+    },
+    {
+        "id": "5",
+        "nomeCientifico": "Salvia officinalis",
+        "nomePopular": "Sálvia",
+        "foto": "https://cdn.awsli.com.br/2500x2500/1043/1043634/produto/118983572/d7c483a794.jpg"
     }
 ]

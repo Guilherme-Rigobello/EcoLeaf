@@ -272,6 +272,7 @@ footer ul li a:hover {
 
 /* Media */
 @media (max-width: 658px) {
+    
 
     header #buscar-planta-form {
         margin-top: 10px;

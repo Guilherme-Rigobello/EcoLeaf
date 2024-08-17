@@ -18,9 +18,22 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
+header .menu {
+    display: none;
+    padding-top: 2px;
+}
+
+header .close-menu {
+    display: none;
+}
+
+header .img-logo-white-text {
+    width: 180px;
+}
+
 header .img-logo-white-text {
     cursor: pointer;
-  
+
 }
 
 header .nav-link {
@@ -89,8 +102,8 @@ header #buscar-planta-form .custom-btn:hover {
 
 /* Main */
 main .text-large {
-    font-size: 40px;
-    margin-top: 10vh;
+    font-size: 39px;
+    margin-top: 8vh;
 }
 
 /* Section Style */
@@ -114,8 +127,15 @@ main .linha {
     height: 3px;
     background-color: #333;
     width: 100px;
-    margin: 25px 0 40px 0;
+    margin: 20px 0 40px 0;
 
+}
+
+main .linha-faqs {
+    height: 3px;
+    background-color: #333;
+    width: 65px;
+    margin: 20px 0 40px 0;
 }
 
 main .section-info .image-container {
@@ -260,7 +280,16 @@ footer ul li a:hover {
 
     header #buscar-planta-form .form-control {
         margin-bottom: 10px;
-        /* Espaçamento inferior no dispositivo móvel */
+    }
+
+    header .menu-burger{
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    header .close-menu {
+        margin-right: 13px;
+        margin-top: 7px;
     }
 
     /* Overlay - Block */
@@ -287,10 +316,7 @@ footer ul li a:hover {
         line-height: 20px;
     }
 
-    main .text-large {
-        font-size: 32px;
-    }
-
+   
     /* Info Text */
     main .section-info #a-1 {
         margin-top: 15vh;
@@ -313,6 +339,22 @@ footer ul li a:hover {
         margin: 0 30px 0 0;
     }
 
+}
+
+@media (max-width: 960px) {
+    header #buscar-planta-form .input-group {
+        display: none;
+    }
+
+    header .menu {
+        display: flex;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    header nav li {
+        display: none;
+    }
 }
 
 @media (max-width: 1040px) {

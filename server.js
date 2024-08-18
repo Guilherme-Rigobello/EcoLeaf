@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 
 //PORT
-const port = 3000
+const port = 4000
 
 const plantasPath = path.join(__dirname, './assets/json/plantas.json')
 const plantasData = fs.readFileSync(plantasPath, 'utf-8')

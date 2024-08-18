@@ -294,17 +294,7 @@ main .col .card:hover {
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.3);
 }
 
-
 /* Footer */
-footer ul li a {
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-footer ul li a:hover {
-    text-decoration: underline;
-}
-
-
 footer .logo-footer {
     max-width: 48px;
     max-height: 48px;
@@ -313,8 +303,13 @@ footer .logo-footer {
 footer .img-footer {
     max-width: 48px;
     max-height: 48px;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+footer .img-footer:hover {
+    transform: translateY(-3px); 
+    filter: brightness(1.2); 
+}
 
 /* Media */
 @media (max-width: 658px) {

@@ -95,7 +95,6 @@ header #buscar-planta-form .custom-btn .icon-lupa {
 
 header #buscar-planta-form .custom-btn:hover {
     border: 2px solid #a4a8ab;
-    background-color: 0;
     opacity: .9;
 }
 

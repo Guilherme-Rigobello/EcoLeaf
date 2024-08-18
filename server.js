@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 
 //PORT
-const port = 4000
+const port = 3000
 
 const plantasPath = path.join(__dirname, './assets/json/plantas.json')
 const plantasData = fs.readFileSync(plantasPath, 'utf-8')
@@ -12,6 +12,7 @@ const plantas = JSON.parse(plantasData)
 
 app.use(express.static(path.join(__dirname, 'assets')));
 
+//HOME TABLE
 app.get('/', (req, res) => {
     let plantasTable = '';
 
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
     res.send(finalHtml);
 });
 
+//SEARCH TABLE
 app.get('/buscarPorNome', (req, res) => {
     const nomePopular = req.query.nome.toLowerCase();
     const nomesFiltrados = plantas.filter(planta => planta.nomePopular.toLowerCase() === nomePopular);
@@ -51,6 +53,7 @@ app.get('/buscarPorNome', (req, res) => {
     `
 });
 
+//BACK BUTTON
 const voltarLink = `
         <tr>
             <td colspan="4" style="text-align: center; padding-top: 10px; border:0 ">
@@ -65,7 +68,7 @@ const voltarLink = `
     res.send(finalHtml);
 });
 
-
+// LISTEN PORT
 app.listen(port, () => {
     console.log(`Servidor iniciado em http://localhost:${port}`)
 })

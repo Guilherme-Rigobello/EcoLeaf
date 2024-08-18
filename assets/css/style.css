@@ -306,6 +306,17 @@ footer ul li a:hover {
 }
 
 
+footer .logo-footer {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+footer .img-footer {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+
 /* Media */
 @media (max-width: 658px) {
     

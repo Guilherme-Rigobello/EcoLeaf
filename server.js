@@ -27,8 +27,8 @@ app.get('/', (req, res) => {
         <td style="padding-top: 35px;">${planta.nomeCientifico} </td>
         <td style="padding-top: 35px;">${planta.nomePopular} </td>
         <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style ="width: 200px; height: 80px;"></td>
-        <td style="paddin-top: 35px;">
-        <a href="/atualizar-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-primary btn-sm">Alterar</a> |
+        <td style="padding-top: 30px;">
+        <a href="/atualizar-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> |
         <a href="/excluir-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-danger btn-sm">Excluir</a>
         </td>
     </tr>
@@ -57,7 +57,7 @@ app.get('/buscarPorNome', (req, res) => {
         <td style="padding-top: 35px;">${planta.nomePopular} </td>
         <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style ="width: 200px; height: 80px;"></td>
         <td>
-        <a href="/atualizar-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-primary btn-sm">Alterar</a> |
+        <a href="/atualizar-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> |
         <a href="/excluir-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-danger btn-sm">Excluir</a>
         </td>
     </tr>

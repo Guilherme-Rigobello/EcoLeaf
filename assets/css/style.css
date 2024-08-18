@@ -329,6 +329,7 @@ footer .img-footer:hover {
         margin-top: 5px;
     }
 
+
     header .close-menu {
         margin-right: 13px;
         margin-top: 7px;
@@ -341,6 +342,10 @@ footer .img-footer:hover {
 
     main .section-info .col-md-3 .overlay .subtitle {
         font-size: 13px;
+    }
+
+    main .text-large {
+        font-size: 32px;
     }
 
     /* FAQs Text */
@@ -361,7 +366,7 @@ footer .img-footer:hover {
    
     /* Info Text */
     main .section-info #a-1 {
-        margin-top: 15vh;
+        margin-top: 10vh;
     }
 
     /* Blog Cards - Margin */

@@ -94,28 +94,7 @@ app.post('/adicionar-planta', (req, res) => {
 
     if (plantas.find(planta => planta.id.toLowerCase() === novaPlanta.id.toLowerCase())) {
         res.send(`
-        <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Alterar Planta</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        </head>
-        <body>
-            <div class="container mt-5">
-                <div class="alert alert-warning text-center" role="alert">
-                    <h1>Altere o nome da planta!</h1>
-                </div>
-                <div class="text-center mt-3">
-                    <a href="/" class="btn btn-primary">Voltar para a lista</a>
-                </div>
-            </div>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        </body>
-        </html>
+        '<script>alert("Altere o ID da planta."); window.location.href = "/adicionar-planta";</script>'
         `);
         return;
     }

@@ -49,35 +49,44 @@ app.get('/buscarPorNome', (req, res) => {
     let plantasTable = '';
 
     nomesFiltrados.forEach(planta => {
-
         plantasTable += `
-   <tr >
+   <tr>
         <td style="padding-top: 35px;">${planta.id}</td>
-        <td style="padding-top: 35px;">${planta.nomeCientifico} </td>
-        <td style="padding-top: 35px;">${planta.nomePopular} </td>
-        <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style ="width: 200px; height: 80px;"></td>
+        <td style="padding-top: 35px;">${planta.nomeCientifico}</td>
+        <td style="padding-top: 35px;">${planta.nomePopular}</td>
+        <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style="width: 200px; height: 80px;"></td>
         <td>
-        <a href="/atualizar-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> 
-        <a href="/excluir-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-danger btn-sm">Excluir</a>
+            <a href="/atualizar-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> 
+            <a href="/excluir-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-danger btn-sm">Excluir</a>
         </td>
     </tr>
-    `
+    `;
     });
 
-    //BACK BUTTON
-    const voltarLink = `
+    const voltarEAdicionarLinks = `
         <tr>
-            <td colspan="4" style="text-align: center; padding-top: 10px; border:0 ">
-                <a class="btn btn-success rounded" href="/">Voltar</a>
+            <td colspan="5" style="text-align: center; padding-top: 10px; border: 0;">
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-success rounded me-2" href="/">Voltar</a>
+                    <a class="btn btn-secondary rounded" href="/adicionar-planta">Adicionar Planta</a>
+                </div>
             </td>
         </tr>
     `;
 
     const htmlContent = fs.readFileSync('index.html', 'utf-8');
-    const finalHtml = htmlContent
-        .replace('{{plantasTable}}', plantasTable + voltarLink);
-    res.send(finalHtml);
+    const finalHtml = htmlContent.replace('{{plantasTable}}', plantasTable + voltarEAdicionarLinks);
+
+    const script = 
+
+    `<script>
+    document.querySelector('.add').style.display = 'none';
+    </script>`;
+
+    res.send(finalHtml + script);
 });
+
+
 
 
 
@@ -137,9 +146,9 @@ app.get('/atualizar-planta', (req, res) => {
 });
 
 app.post('/atualizar-planta', (req, res) => {
-    const { id, novoNomeCie, novoNomePop, novaFoto } = req.body;
+    const { idOriginal, novoNomeCie, novoNomePop, novaFoto } = req.body;
 
-    const plantaIndex = plantas.findIndex(planta => planta.id.toLowerCase() === id.toLowerCase());
+    const plantaIndex = plantas.findIndex(planta => planta.id == idOriginal);
 
     if (plantaIndex === -1) {
         return res.send(`
@@ -171,7 +180,7 @@ app.get('/excluir-planta', (req, res) => {
         `);
         return;
     }
-   
+
     let htmlContent = fs.readFileSync('assets/html/excluirplanta.html', 'utf-8');
     htmlContent = htmlContent.replace('{{id}}', planta.id);
     res.send(htmlContent);
@@ -179,7 +188,7 @@ app.get('/excluir-planta', (req, res) => {
 
 
 app.post('/excluir-planta-confirmado', (req, res) => {
-    const id =  req.body.id;
+    const id = req.body.id;
     console.log(id);
 
     const plantaIndex = plantas.findIndex(planta => planta.id.toLowerCase() === id.toLowerCase());

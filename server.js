@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
         <td style="padding-top: 35px;">${planta.nomePopular} </td>
         <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style ="width: 200px; height: 80px;"></td>
         <td style="padding-top: 30px;">
-        <a href="/atualizar-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> |
+        <a href="/atualizar-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a>
         <a href="/excluir-planta?id=${encodeURIComponent(planta.id)}" class="btn btn-danger btn-sm">Excluir</a>
         </td>
     </tr>
@@ -57,7 +57,7 @@ app.get('/buscarPorNome', (req, res) => {
         <td style="padding-top: 35px;">${planta.nomePopular} </td>
         <td><img src="${planta.foto}" alt="${planta.nomeCientifico}" style ="width: 200px; height: 80px;"></td>
         <td>
-        <a href="/atualizar-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> |
+        <a href="/atualizar-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-success btn-sm">Alterar</a> 
         <a href="/excluir-planta?descricao=${encodeURIComponent(planta.id)}" class="btn btn-danger btn-sm">Excluir</a>
         </td>
     </tr>
@@ -80,6 +80,8 @@ app.get('/buscarPorNome', (req, res) => {
 });
 
 
+
+//SAVE DATA
 function salvarDados() {
     fs.writeFileSync(plantasPath, JSON.stringify(plantas, null, 2));
 }
@@ -89,6 +91,8 @@ app.get('/adicionar-planta', (req, res) => {
 });
 
 
+
+//ADD DATA
 app.post('/adicionar-planta', (req, res) => {
     const novaPlanta = req.body;
 
@@ -104,8 +108,94 @@ app.post('/adicionar-planta', (req, res) => {
 
     salvarDados();
 
-    res.redirect('/'); //Voltando para a rota principal depois de salvar
+    res.redirect('/');
 
+});
+
+
+
+//UPDATE DATA
+app.get('/atualizar-planta', (req, res) => {
+    const id = req.query.id;
+    const planta = plantas.find(planta => planta.id.toLowerCase() === id.toLowerCase());
+
+    if (!planta) {
+        return res.send(`
+        '<script>alert("Planta não encontrada"); window.location.href = "/atualizar-planta";</script>'
+        `);
+    }
+
+    let htmlContent = fs.readFileSync('assets/html/atualizarPlanta.html', 'utf-8');
+
+    htmlContent = htmlContent.replace('{{id}}', planta.id)
+        .replace('{{nomeCientifico}}', planta.nomeCientifico)
+        .replace('{{nomePopular}}', planta.nomePopular)
+        .replace('{{foto}}', planta.foto)
+
+
+    res.send(htmlContent);
+});
+
+app.post('/atualizar-planta', (req, res) => {
+    const { id, novoNomeCie, novoNomePop, novaFoto } = req.body;
+
+    const plantaIndex = plantas.findIndex(planta => planta.id.toLowerCase() === id.toLowerCase());
+
+    if (plantaIndex === -1) {
+        return res.send(`
+        '<script>alert("Planta não encontrada"); window.location.href = "/atualizar-planta";</script>'
+        `);
+    }
+
+    plantas[plantaIndex] = {
+        ...plantas[plantaIndex],
+        nomeCientifico: novoNomeCie,
+        nomePopular: novoNomePop,
+        foto: novaFoto,
+    };
+
+    salvarDados();
+
+    res.redirect('/');
+});
+
+
+//DELETE DATA
+app.get('/excluir-planta', (req, res) => {
+    const id = req.query.id;
+    const planta = plantas.find(planta => planta.id.toLowerCase() === id.toLowerCase());
+
+    if (!planta) {
+        res.send(`
+        '<script>alert("Planta não encontrada"); window.location.href = "/excluir-planta";</script>'
+        `);
+        return;
+    }
+   
+    let htmlContent = fs.readFileSync('assets/html/excluirplanta.html', 'utf-8');
+    htmlContent = htmlContent.replace('{{id}}', planta.id);
+    res.send(htmlContent);
+});
+
+
+app.post('/excluir-planta-confirmado', (req, res) => {
+    const id =  req.body.id;
+    console.log(id);
+
+    const plantaIndex = plantas.findIndex(planta => planta.id.toLowerCase() === id.toLowerCase());
+
+    if (plantaIndex === -1) {
+        res.send(`
+        '<script>alert("Planta não encontrada"); window.location.href = "/excluir-planta";</script>'
+        `);
+        return;
+    }
+
+    plantas.splice(plantaIndex, 1);
+
+    salvarDados();
+
+    res.redirect('/');
 });
 
 

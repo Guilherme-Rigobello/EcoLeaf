@@ -1,11 +1,5 @@
 [
   {
-    "id": "1",
-    "nomeCientifico": "Rosmarinus officinalis",
-    "nomePopular": "Alecrim",
-    "foto": "https://cdn.awsli.com.br/600x450/1348/1348550/produto/111620982/d327f5a0bd.jpg"
-  },
-  {
     "id": "2",
     "nomeCientifico": "Atropa belladonna",
     "nomePopular": "Beladona",
